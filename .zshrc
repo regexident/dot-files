@@ -1,8 +1,14 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/Benjamin.Herzog/.oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
 
 # Theme
 ZSH_THEME="powerlevel9k/powerlevel9k"
+
+POWERLEVEL9K_MODE='awesome-patched'
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon dir vcs)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status time ip)
+POWERLEVEL9K_STATUS_VERBOSE=false
+POWERLEVEL9K_TIME_FORMAT="%D{%H:%M}"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 COMPLETION_WAITING_DOTS="true"
