@@ -19,8 +19,8 @@ plugins=(git)
 # User configuration
 
 export PATH=$PATH:/usr/local/opt/go/libexec/bin
-export GOROOT=/usr/local/bin
-export GOPATH=$HOME/go
+export GOROOT=/usr/local/go/
+export GOPATH=$HOME/dev/go/
 export PATH=$PATH:$GOPATH/bin
 
 source $ZSH/oh-my-zsh.sh
@@ -33,6 +33,9 @@ function manpdf() { man -t "${1}" | open -f -a /Applications/Preview.app/; }
 function backup() { cp $1 $1.bak; }
 function genfile() { dd if=/dev/zero of=file.bin bs=1024 count=0 seek=$[1024 * $1]; } #generate large file quickly, passed in MB
 function subl() { open -a Sublime\ Text\ 2 $1; }
+function brackets() { open -a Brackets $1; }
+function code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $*; }
+
 extract () {
     if [ -f $1 ] ; then
       case $1 in
@@ -95,3 +98,6 @@ alias swift="xcrun swift"
 
 # hide all the desktop icons! :)
 function showDesktopIcons() { defaults write com.apple.finder CreateDesktop -bool $1; killall Finder; }
+
+alias uberspace='ssh benchr@bootes.uberspace.de'
+alias htw='ssh s68311@ilux150.informatik.htw-dresden.de'
