@@ -5,8 +5,8 @@ export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="powerlevel9k/powerlevel9k"
 
 POWERLEVEL9K_MODE='awesome-patched'
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon dir vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status time ip)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status)
 POWERLEVEL9K_STATUS_VERBOSE=false
 POWERLEVEL9K_TIME_FORMAT="%D{%H:%M}"
 
@@ -91,7 +91,7 @@ alias gis="git status -s"
 alias gd="git diff"
 rgc() { git commit -m"`curl -s http://whatthecommit.com/index.txt`"; } #random git commit message
 function gcom() { git commit -m $1; }
-function gi() { curl http://www.gitignore.io/api/$1 ;}
+function gi() { wget http://www.gitignore.io/api/$1 -O ./.gitignore ;}
 alias gpanic="git checkout ."
 
 alias swift="xcrun swift"
