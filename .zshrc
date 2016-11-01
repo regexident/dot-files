@@ -1,6 +1,11 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
+# LOVOO
+function jenkins() {
+	ssh jenkins@osxbuild0$1.lovoo.local
+}
+
 # Theme
 ZSH_THEME="powerlevel9k/powerlevel9k"
 
@@ -13,17 +18,27 @@ POWERLEVEL9K_TIME_FORMAT="%D{%H:%M}"
 # Uncomment the following line to display red dots whilst waiting for completion.
 COMPLETION_WAITING_DOTS="true"
 
+# Report CPU usage for commands running longer than 10 seconds
+REPORTTIME=10
+
 # plugins
 plugins=(git)
 
 # User configuration
 
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_102.jdk/Contents/Home
 export PATH=$PATH:/usr/local/opt/go/libexec/bin
-export GOROOT=/usr/local/go/
-export GOPATH=$HOME/dev/go/
-export PATH=$PATH:$GOPATH/bin
+export GOROOT=/usr/local/go
+export GOPATH=$HOME/dev/go
+export GOBIN=$GOPATH/bin
+export PATH=$PATH:$GOBIN
+export EDITOR=nano
 
-source $ZSH/oh-my-zsh.sh
+if [ -z "$PS1" ]; then
+        echo This shell is not interactive
+else
+        source $ZSH/oh-my-zsh.sh
+fi
 
 # Example aliases
 alias zshconfig="subl ~/.zshrc"
@@ -32,9 +47,21 @@ alias zshconfig="subl ~/.zshrc"
 function manpdf() { man -t "${1}" | open -f -a /Applications/Preview.app/; }
 function backup() { cp $1 $1.bak; }
 function genfile() { dd if=/dev/zero of=file.bin bs=1024 count=0 seek=$[1024 * $1]; } #generate large file quickly, passed in MB
-function subl() { open -a Sublime\ Text\ 2 $1; }
+function subl() { open -a Sublime\ Text $1; }
 function brackets() { open -a Brackets $1; }
-function code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $*; }
+
+# colorized man pages :O
+man() {
+    env \
+        LESS_TERMCAP_mb=$(printf "\e[1;31m") \
+        LESS_TERMCAP_md=$(printf "\e[1;31m") \
+        LESS_TERMCAP_me=$(printf "\e[0m") \
+        LESS_TERMCAP_se=$(printf "\e[0m") \
+        LESS_TERMCAP_so=$(printf "\e[1;44;33m") \
+        LESS_TERMCAP_ue=$(printf "\e[0m") \
+        LESS_TERMCAP_us=$(printf "\e[1;32m") \
+            man "$@"
+}
 
 extract () {
     if [ -f $1 ] ; then
@@ -66,6 +93,8 @@ function str() {
     fi
 }
 
+alias showUDIDs="system_profiler SPUSBDataType | sed -n -e '/iPad/,/Serial/p' -e '/iPhone/,/Serial/p'"
+
 alias please='sudo'
 
 # ls aliases
@@ -81,7 +110,7 @@ alias ...='cd ../../'
 alias ....='cd ../../../'
 alias .....='cd ../../../../'
 
-alias swift22='/Library/Developer/Toolchains/swift-latest.xctoolchain/usr/bin/swift'
+alias schwift='/Library/Developer/Toolchains/swift-latest.xctoolchain/usr/bin/swift'
 
 alias c='clear'
 
@@ -100,4 +129,9 @@ alias swift="xcrun swift"
 function showDesktopIcons() { defaults write com.apple.finder CreateDesktop -bool $1; killall Finder; }
 
 alias uberspace='ssh benchr@bootes.uberspace.de'
-alias htw='ssh s68311@ilux150.informatik.htw-dresden.de'
+alias htwbachelor='ssh s68311@ilux150.informatik.htw-dresden.de'
+alias htw='ssh s76511@ilux150.informatik.htw-dresden.de'
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
