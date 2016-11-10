@@ -10,7 +10,7 @@ function jenkins() {
 ZSH_THEME="powerlevel9k/powerlevel9k"
 
 POWERLEVEL9K_MODE='awesome-patched'
-POWERLEVEL9K_CONTEXT_DEFAULT_BACKGROUND='white'
+POWERLEVEL9K_CONTEXT_DEFAULT_BACKGROUND='002'
 POWERLEVEL9K_CONTEXT_DEFAULT_FOREGROUND='black'
 POWERLEVEL9K_CONTEXT_ROOT_BACKGROUND='red'
 POWERLEVEL9K_CONTEXT_ROOT_FOREGROUND='white'
@@ -45,6 +45,8 @@ if [ -z "$PS1" ]; then
 else
         source $ZSH/oh-my-zsh.sh
 fi
+
+
 
 # Example aliases
 alias zshconfig="subl ~/.zshrc"
