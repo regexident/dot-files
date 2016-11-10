@@ -10,10 +10,16 @@ function jenkins() {
 ZSH_THEME="powerlevel9k/powerlevel9k"
 
 POWERLEVEL9K_MODE='awesome-patched'
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status)
-POWERLEVEL9K_STATUS_VERBOSE=false
-POWERLEVEL9K_TIME_FORMAT="%D{%H:%M}"
+POWERLEVEL9K_CONTEXT_DEFAULT_BACKGROUND='white'
+POWERLEVEL9K_CONTEXT_DEFAULT_FOREGROUND='black'
+POWERLEVEL9K_CONTEXT_ROOT_BACKGROUND='red'
+POWERLEVEL9K_CONTEXT_ROOT_FOREGROUND='white'
+POWERLEVEL9K_DIR_BACKGROUND='004'
+POWERLEVEL9K_DIR_FOREGROUND='white'
+DEFAULT_USER='ben'
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs)
+POWERLEVEL9K_DISABLE_RPROMPT=true
+POWERLEVEL9K_STATUS_VERBOSE=true
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 COMPLETION_WAITING_DOTS="true"
@@ -29,7 +35,7 @@ plugins=(git)
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_102.jdk/Contents/Home
 export PATH=$PATH:/usr/local/opt/go/libexec/bin
 export GOROOT=/usr/local/go
-export GOPATH=$HOME/dev/go
+export GOPATH=$HOME/Development/go
 export GOBIN=$GOPATH/bin
 export PATH=$PATH:$GOBIN
 export EDITOR=nano
@@ -129,7 +135,6 @@ alias swift="xcrun swift"
 function showDesktopIcons() { defaults write com.apple.finder CreateDesktop -bool $1; killall Finder; }
 
 alias uberspace='ssh benchr@bootes.uberspace.de'
-alias htwbachelor='ssh s68311@ilux150.informatik.htw-dresden.de'
 alias htw='ssh s76511@ilux150.informatik.htw-dresden.de'
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
