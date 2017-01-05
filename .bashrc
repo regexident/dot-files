@@ -102,7 +102,7 @@ alias swift="xcrun swift"
 function showDesktopIcons() { defaults write com.apple.finder CreateDesktop -bool $1; killall Finder; }
 
 alias uberspace='ssh benchr@bootes.uberspace.de'
-alias htw='ssh s76511@ilux150.informatik.htw-dresden.de'
+alias htw='ssh -X s76511@ilux150.informatik.htw-dresden.de'
 alias htwmount='sshfs s76511@ilux150.informatik.htw-dresden.de:. ~/tmp/iLux150'
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
