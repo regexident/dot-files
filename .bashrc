@@ -6,7 +6,7 @@ function jenkins() {
 # User configuration
 
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_102.jdk/Contents/Home
-export PATH=$PATH:/usr/local/opt/go/libexec/bin
+export PATH=/usr/local/opt/go/libexec/bin:/usr/local/sbin:$PATH
 export GOROOT=/usr/local/go
 export GOPATH=$HOME/Development/go
 export GOBIN=$GOPATH/bin
@@ -84,6 +84,7 @@ alias ....='cd ../../../'
 alias .....='cd ../../../../'
 
 alias schwift='/Library/Developer/Toolchains/swift-latest.xctoolchain/usr/bin/swift'
+function serveHTTP() { ncat -klvp $1 }
 
 alias c='clear'
 
@@ -101,7 +102,7 @@ alias swift="xcrun swift"
 # hide all the desktop icons! :)
 function showDesktopIcons() { defaults write com.apple.finder CreateDesktop -bool $1; killall Finder; }
 
-alias uberspace='ssh benchr@bootes.uberspace.de'
+alias uberspace='ssh -X benchr@bootes.uberspace.de'
 alias htw='ssh -X s76511@ilux150.informatik.htw-dresden.de'
 alias htwmount='sshfs s76511@ilux150.informatik.htw-dresden.de:. ~/tmp/iLux150'
 
