@@ -2,7 +2,7 @@
 export ZSH=$HOME/.oh-my-zsh
 
 # Theme
-ZSH_THEME="nicoulaj"
+ZSH_THEME='mymuse'
 
 POWERLEVEL9K_MODE='awesome-patched'
 POWERLEVEL9K_CONTEXT_DEFAULT_BACKGROUND='002'

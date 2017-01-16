@@ -10,7 +10,7 @@ module.exports = {
     cursorColor: 'rgba(248,28,229,0.8)',
 
     // `BEAM` for |, `UNDERLINE` for _, `BLOCK` for █
-    cursorShape: 'BLOCK',
+    cursorShape: 'BEAM',
 
     // color of the text
     foregroundColor: '#fff',
@@ -90,12 +90,12 @@ module.exports = {
       hideDock: false,
       hideOnBlur: false,
       hotkeys: ['Option+Space'],
-      position: 'right',
+      position: 'bottom',
       primaryDisplay: true,
       resizable: true,
       startAlone: false,
       startup: false,
-      size: 0.4,
+      size: 0.334,
       tray: false,
       unique: true
     }
@@ -113,7 +113,7 @@ module.exports = {
     'hyperline', // statusline
     'hyperterm-alternatescroll',
     'hyperlinks',
-    'hyperterm-overlay',
+    //'hyperterm-overlay',
     'hyperterm-cursor',
     'hyperminimal'
     //'hyper-statusline' // would add git inormation status line
@@ -122,5 +122,5 @@ module.exports = {
   // in development, you can create a directory under
   // `~/.hyper_plugins/local/` and include it here
   // to load it and avoid it being `npm install`ed
-  localPlugins: []
+  localPlugins: ['overlay_dev']
 };
