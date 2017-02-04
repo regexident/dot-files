@@ -17,3 +17,4 @@ brew cask install vmware-fusion
 brew cask install tower
 brew cask install sqlpro-studio
 brew cask install the-unarchiver
+brew cask install paragon-ntfs
