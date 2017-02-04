@@ -25,3 +25,4 @@ brew cask install gpgtools
 brew cask install dash
 brew cask install flux
 brew cask install spotify
+brew cask install charles
