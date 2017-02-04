@@ -18,3 +18,4 @@ brew cask install tower
 brew cask install sqlpro-studio
 brew cask install the-unarchiver
 brew cask install paragon-ntfs
+brew cask install istat-menus
