@@ -23,3 +23,4 @@ brew cask install paragon-ntfs
 brew cask install istat-menus
 brew cask install gpgtools
 brew cask install dash
+brew cask install flux
