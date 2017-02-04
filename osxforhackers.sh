@@ -58,24 +58,15 @@ fi
 sudo -v
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
+# install brew
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
 # Install some programs
 sudo gem install cocoapods-playgrounds fastlane
 
 ###############################################################################
 # General UI/UX
 ###############################################################################
-
-echo ""
-echo "Would you like to set your computer name (as done via System Preferences >> Sharing)?  (y/n)"
-read -r response
-if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
-  echo "What would you like it to be?"
-  read COMPUTER_NAME
-  sudo scutil --set ComputerName $COMPUTER_NAME
-  sudo scutil --set HostName $COMPUTER_NAME
-  sudo scutil --set LocalHostName $COMPUTER_NAME
-  sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string $COMPUTER_NAME
-fi
 
 echo ""
 echo "Hide the Time Machine icon"
@@ -145,11 +136,8 @@ echo "Displaying ASCII control characters using caret notation in standard text 
 defaults write NSGlobalDomain NSTextShowsControlCharacters -bool true
 
 echo ""
-echo "Save to disk, rather than iCloud, by default? (y/n)"
-read -r response
-if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
-  defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
-fi
+echo "Save to disk, rather than iCloud, by default?"
+defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
 
 echo ""
 echo "Reveal IP address, hostname, OS version, etc. when clicking the clock in the login window"
@@ -164,12 +152,9 @@ echo "Removing duplicates in the 'Open With' menu"
 /System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user
 
 echo ""
-echo "Disable smart quotes and smart dashes? (y/n)"
-read -r response
-if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
-  defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
-  defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
-fi
+echo "Disable smart quotes and smart dashes?"
+defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
+defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
 
 echo ""
 echo "Disable Photos.app from starting everytime a device is plugged in"
@@ -181,18 +166,12 @@ defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool true
 ###############################################################################
 
 echo ""
-echo "Disable hibernation? (speeds up entering sleep mode) (y/n)"
-read -r response
-if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
-  sudo pmset -a hibernatemode 0
-fi
+echo "Disable hibernation (speeds up entering sleep mode)"
+sudo pmset -a hibernatemode 0
 
 echo ""
-echo "Disable system-wide resume? (y/n)"
-read -r response
-if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
-  defaults write com.apple.systempreferences NSQuitAlwaysKeepsWindows -bool false
-fi
+echo "Disable system-wide resume"
+defaults write com.apple.systempreferences NSQuitAlwaysKeepsWindows -bool false
 
 echo ""
 echo "Speeding up wake from sleep to 24 hours from an hour"
@@ -213,19 +192,8 @@ echo "Enabling full keyboard access for all controls (enable Tab in modal dialog
 defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
 
 echo ""
-echo "Disabling press-and-hold for special keys in favor of key repeat"
-defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
-
-echo ""
-echo "Setting a blazingly fast keyboard repeat rate"
-defaults write NSGlobalDomain KeyRepeat -int 0
-
-echo ""
-echo "Disable auto-correct? (y/n)"
-read -r response
-if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
-  defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
-fi
+echo "Disable auto-correct?"
+defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 
 echo ""
 echo "Setting trackpad & mouse speed to a reasonable number"
@@ -235,20 +203,6 @@ defaults write -g com.apple.mouse.scaling 2.5
 echo ""
 echo "Turn off keyboard illumination when computer is not used for 5 minutes"
 defaults write com.apple.BezelServices kDimTime -int 300
-
-echo ""
-echo "Disable display from automatically adjusting brightness? (y/n)"
-read -r response
-if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
-  sudo defaults write /Library/Preferences/com.apple.iokit.AmbientLightSensor "Automatic Display Enabled" -bool false
-fi
-
-echo ""
-echo "Disable keyboard from automatically adjusting backlight brightness in low light? (y/n)"
-read -r response
-if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
-  sudo defaults write /Library/Preferences/com.apple.iokit.AmbientLightSensor "Automatic Keyboard Enabled" -bool false
-fi
 
 ###############################################################################
 # Screen
@@ -279,115 +233,46 @@ sudo defaults write /Library/Preferences/com.apple.windowserver DisplayResolutio
 ###############################################################################
 
 echo ""
-echo "Show icons for hard drives, servers, and removable media on the desktop? (y/n)"
-read -r response
-if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
-  defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool true
-fi
+echo "Show icons for hard drives, servers, and removable media on the desktop?"
+defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool true
 
 echo ""
 echo "Show hidden files in Finder by default? (y/n)"
-read -r response
-if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
-  defaults write com.apple.Finder AppleShowAllFiles -bool true
-fi
+defaults write com.apple.Finder AppleShowAllFiles -bool true
 
 echo ""
-echo "Show dotfiles in Finder by default? (y/n)"
-read -r response
-if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
-  defaults write com.apple.finder AppleShowAllFiles TRUE
-fi
+echo "Show all filename extensions in Finder by default"
+defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 
 echo ""
-echo "Show all filename extensions in Finder by default? (y/n)"
-read -r response
-if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
-  defaults write NSGlobalDomain AppleShowAllExtensions -bool true
-fi
+echo "Show status bar in Finder by default"
+defaults write com.apple.finder ShowStatusBar -bool true
 
 echo ""
-echo "Show status bar in Finder by default? (y/n)"
-read -r response
-if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
-  defaults write com.apple.finder ShowStatusBar -bool true
-fi
+echo "Display full POSIX path as Finder window title"
+defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
 
 echo ""
-echo "Display full POSIX path as Finder window title? (y/n)"
-read -r response
-if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
-  defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
-fi
+echo "Disable the warning when changing a file extension"
+defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
 
 echo ""
-echo "Disable the warning when changing a file extension? (y/n)"
-read -r response
-if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
-  defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
-fi
+echo "Use column view in all Finder windows by default"
+defaults write com.apple.finder FXPreferredViewStyle Clmv
 
 echo ""
-echo "Use column view in all Finder windows by default? (y/n)"
-read -r response
-if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
-  defaults write com.apple.finder FXPreferredViewStyle Clmv
-fi
-
-echo ""
-echo "Avoid creation of .DS_Store files on network volumes? (y/n)"
-read -r response
-if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
-  defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
-fi
+echo "Avoid creation of .DS_Store files on network volumes"
+defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 
 echo ""
 echo "Allowing text selection in Quick Look/Preview in Finder by default"
 defaults write com.apple.finder QLEnableTextSelection -bool true
 
 echo ""
-echo "Show item info near icons on the desktop and in other icon views? (y/n)"
-read -r response
-if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
-  /usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:showItemInfo true" ~/Library/Preferences/com.apple.finder.plist
-  /usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:showItemInfo true" ~/Library/Preferences/com.apple.finder.plist
-  /usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:showItemInfo true" ~/Library/Preferences/com.apple.finder.plist
-fi
-
-echo ""
-echo "Show item info to the right of the icons on the desktop? (y/n)"
-read -r response
-if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
-  /usr/libexec/PlistBuddy -c "Set DesktopViewSettings:IconViewSettings:labelOnBottom false" ~/Library/Preferences/com.apple.finder.plist
-fi
-
-echo ""
-echo "Enable snap-to-grid for icons on the desktop and in other icon views? (y/n)"
-read -r response
-if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
-  /usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
-  /usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
-  /usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
-fi
-
-echo ""
-echo "Increase grid spacing for icons on the desktop and in other icon views? (y/n)"
-read -r response
-if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
-  /usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:gridSpacing 100" ~/Library/Preferences/com.apple.finder.plist
-  /usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:gridSpacing 100" ~/Library/Preferences/com.apple.finder.plist
-  /usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:gridSpacing 100" ~/Library/Preferences/com.apple.finder.plist
-fi
-
-echo ""
-echo "Increase the size of icons on the desktop and in other icon views? (y/n)"
-read -r response
-if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
-  /usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:iconSize 80" ~/Library/Preferences/com.apple.finder.plist
-  /usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:iconSize 80" ~/Library/Preferences/com.apple.finder.plist
-  /usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:iconSize 80" ~/Library/Preferences/com.apple.finder.plist
-fi
-
+echo "Enable snap-to-grid for icons on the desktop and in other icon views"
+/usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
+/usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
+/usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
 
 ###############################################################################
 # Dock & Mission Control
@@ -405,22 +290,14 @@ echo "Setting the icon size of Dock items to 36 pixels for optimal size/screen-r
 defaults write com.apple.dock tilesize -int 36
 
 echo ""
-echo "Speeding up Mission Control animations and grouping windows by application"
-defaults write com.apple.dock expose-animation-duration -float 0.1
-defaults write com.apple.dock "expose-group-by-app" -bool true
-
-echo ""
 echo "Disable the over-the-top focus ring animation"
 defaults write NSGlobalDomain NSUseAnimatedFocusRing -bool false
 
 echo ""
-echo "Set Dock to auto-hide and remove the auto-hiding delay? (y/n)"
-read -r response
-if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
-  defaults write com.apple.dock autohide -bool true
-  defaults write com.apple.dock autohide-delay -float 0
-  defaults write com.apple.dock autohide-time-modifier -float 0
-fi
+echo "Set Dock to auto-hide and remove the auto-hiding delay"
+defaults write com.apple.dock autohide -bool true
+defaults write com.apple.dock autohide-delay -float 0
+defaults write com.apple.dock autohide-time-modifier -float 0
 
 
 ###############################################################################
@@ -493,37 +370,24 @@ defaults write com.apple.Terminal "Startup Window Settings" -string "Pro"
 ###############################################################################
 
 echo ""
-echo "Prevent Time Machine from prompting to use new hard drives as backup volume? (y/n)"
-read -r response
-if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
-  defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true
-fi
+echo "Prevent Time Machine from prompting to use new hard drives as backup volume"
+defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true
 
 echo ""
-echo "Disable local Time Machine backups? (This can take up a ton of SSD space on <128GB SSDs) (y/n)"
-read -r response
-if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
-  hash tmutil &> /dev/null && sudo tmutil disablelocal
-fi
-
+echo "Disable local Time Machine backups (This can take up a ton of SSD space on <128GB SSDs)"
+hash tmutil &> /dev/null && sudo tmutil disablelocal
 
 ###############################################################################
 # Messages                                                                    #
 ###############################################################################
 
 echo ""
-echo "Disable smart quotes in Messages.app? (it's annoying for messages that contain code) (y/n)"
-read -r response
-if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
-  defaults write com.apple.messageshelper.MessageController SOInputLineSettings -dict-add "automaticQuoteSubstitutionEnabled" -bool false
-fi
+echo "Disable smart quotes in Messages.app (it's annoying for messages that contain code)"
+defaults write com.apple.messageshelper.MessageController SOInputLineSettings -dict-add "automaticQuoteSubstitutionEnabled" -bool false
 
 echo ""
-echo "Disable continuous spell checking in Messages.app? (y/n)"
-read -r response
-if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
-  defaults write com.apple.messageshelper.MessageController SOInputLineSettings -dict-add "continuousSpellCheckingEnabled" -bool false
-fi
+echo "Disable continuous spell checking in Messages.app"
+defaults write com.apple.messageshelper.MessageController SOInputLineSettings -dict-add "continuousSpellCheckingEnabled" -bool false
 
 ###############################################################################
 # Sublime Text
