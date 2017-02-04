@@ -26,3 +26,4 @@ brew cask install dash
 brew cask install flux
 brew cask install spotify
 brew cask install charles
+brew cask install xquartz
