@@ -6,12 +6,13 @@ function jenkins() {
 # User configuration
 
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_102.jdk/Contents/Home
-export PATH=/usr/local/opt/go/libexec/bin:/usr/local/sbin:$PATH
-export GOROOT=/usr/local/go
-export GOPATH=$HOME/Development/go
-export GOBIN=$GOPATH/bin
-export PATH=$PATH:$GOBIN
+export PATH=/usr/local/sbin:$PATH
 export EDITOR=nano
+
+export GOPATH=$HOME/Development/go
+export GOROOT=/usr/local/opt/go/libexec
+export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:$GOROOT/bin
 
 # Example aliases
 alias zshconfig="subl ~/.zshrc"
