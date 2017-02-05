@@ -28,3 +28,4 @@ brew cask install spotify
 brew cask install charles
 brew cask install xquartz
 brew cask install whatsapp
+brew cask install softorino-youtube-converter
