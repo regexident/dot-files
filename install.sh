@@ -8,6 +8,7 @@ brew install loc
 brew install npm
 brew install keybase
 brew install hugo
+brew install tmux
 
 brew cask install sublime-text
 brew cask install brackets
