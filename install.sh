@@ -31,3 +31,4 @@ brew cask install xquartz
 brew cask install whatsapp
 brew cask install softorino-youtube-converter
 brew cask install obs
+brew cask install calibre
