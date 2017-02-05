@@ -27,3 +27,4 @@ brew cask install flux
 brew cask install spotify
 brew cask install charles
 brew cask install xquartz
+brew cask install whatsapp
