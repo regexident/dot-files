@@ -9,7 +9,9 @@ b=(
 	mercurial
 	npm
 	openssl
+	rust
 	tmux
+	watchexec
 	wget
 )
 
