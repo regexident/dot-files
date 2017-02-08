@@ -1,36 +1,51 @@
 #!/bin/bash
 
-brew install go
-brew install git
-brew install mercurial
-brew install openssl
-brew install loc
-brew install npm
-brew install keybase
-brew install hugo
-brew install tmux
+b=(
+	go
+	git
+	mercurial
+	openssl
+	loc
+	npm
+	keybase
+	hugo
+	tmux
+	wget
+)
 
-brew cask install sublime-text
-brew cask install brackets
-brew cask install visual-studio-code
-brew cask install slack
-brew cask install bartender
-brew cask install caffeine
-brew cask install virtualbox
-brew cask install tower
-brew cask install sqlpro-studio
-brew cask install the-unarchiver
-brew cask install paragon-ntfs
-brew cask install istat-menus
-brew cask install gpgtools
-brew cask install dash
-brew cask install flux
-brew cask install spotify
-brew cask install charles
-brew cask install xquartz
-brew cask install whatsapp
-brew cask install softorino-youtube-converter
-brew cask install obs
-brew cask install calibre
-brew cask install rescuetime
-brew cask install postman
+c=(
+	sublime-text
+	brackets
+	visual-studio-code
+	slack
+	bartender
+	caffeine
+	virtualbox
+	tower
+	sqlpro-studio
+	the-unarchiver
+	paragon-ntfs
+	istat-menus
+	gpgtools
+	dash
+	flux
+	spotify
+	charles
+	xquartz
+	whatsapp
+	softorino-youtube-converter
+	obs
+	calibre
+	rescuetime
+	postman
+)
+
+for f in "${b[@]}"
+do
+	brew install $f
+done
+
+for f in "${c[@]}"
+do
+	brew cask install $f
+done
