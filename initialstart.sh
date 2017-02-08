@@ -55,7 +55,9 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 # install oh my zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
-# Install some programs
+echo ""
+echo "Install all necessary programs.. This could take a while... :)"
+./install.sh
 sudo gem install cocoapods-playgrounds fastlane
 
 ###############################################################################
@@ -383,23 +385,20 @@ echo ""
 echo "Disable continuous spell checking in Messages.app"
 defaults write com.apple.messageshelper.MessageController SOInputLineSettings -dict-add "continuousSpellCheckingEnabled" -bool false
 
-###############################################################################
-# Sublime Text
-###############################################################################
-echo ""
-echo "Do you use Sublime Text 3 as your editor of choice, and is it installed?"
-read -r response
-if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
-# Installing from homebrew cask does the following for you!
-# echo ""
-# echo "Linking Sublime Text for command line usage as subl"
-# ln -s "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" /usr/local/bin/subl
-
 echo ""
 echo "Setting Git to use Sublime Text as default editor"
 git config --global core.editor "subl -n -w"
 fi
 
+echo ""
+echo "Setting Git to always sign commits. (And set key to use)"
+git config --global commit.gpgsign true
+git config --global user.signingkey 01C61685
+
+echo ""
+echo "Config gpg so tower can use it."
+echo no-tty >> ~/.gnupg/gpg.conf
+git config --global gpg.program /usr/local/bin/gpg
 
 ###############################################################################
 # Kill affected applications
