@@ -1,21 +1,48 @@
-# LOVOO
-function jenkins() {
-	ssh jenkins@osxbuild0$1.lovoo.local
-}
-
 # User configuration
-
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_102.jdk/Contents/Home
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home
 export PATH=/usr/local/sbin:$PATH
-export EDITOR=nano
 
+# Go stuff
 export GOPATH=$HOME/Development/go
 export GOROOT=/usr/local/opt/go/libexec
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:$GOROOT/bin
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
-# Example aliases
+# Aliases
 alias zshconfig="subl ~/.zshrc"
+alias showUDIDs="system_profiler SPUSBDataType | sed -n -e '/iPad/,/Serial/p' -e '/iPhone/,/Serial/p'"
+
+alias schwift='/Library/Developer/Toolchains/swift-latest.xctoolchain/usr/bin/swift'
+alias swift="xcrun swift"
+
+alias please='sudo'
+
+# ls aliases
+alias ll='ls -lG'
+alias l='ls -lAhG'
+alias ls='ls -G'
+alias lsd='ls -Gal | grep ^d' # Only list directories, including hidden ones
+alias lf='/bin/ls -rt|tail -n1' # list last changed file
+
+# a quick way to get out of current directory
+alias ..='cd ..'
+alias ...='cd ../../'
+alias ....='cd ../../../'
+alias .....='cd ../../../../'
+
+# git aliases
+alias gg="git log --oneline --all --abbrev-commit --graph --decorate --color"
+alias gis="git status -s"
+alias gd="git diff"
+rgc() { git commit -m"`curl -s http://whatthecommit.com/index.txt`"; } #random git commit message
+function gcom() { git commit -m $1; }
+function gi() { wget http://www.gitignore.io/api/$1 -O ./.gitignore ;}
+alias gpanic="git checkout ."
+
+# ssh hosts
+alias uberspace='ssh benchr@bootes.uberspace.de'
+alias htw='ssh -X s76511@ilux150.informatik.htw-dresden.de'
 
 # useful functions
 function manpdf() { man -t "${1}" | open -f -a /Applications/Preview.app/; }
@@ -58,53 +85,21 @@ extract () {
      fi
 }
 
-function str() {
+function tower() {
     if [ $# -eq 0 ]
     then
-        open -a SourceTree .
+        gittower .
     else
-        open -a SourceTree $1
+        gittower $1
     fi
 }
 
-alias showUDIDs="system_profiler SPUSBDataType | sed -n -e '/iPad/,/Serial/p' -e '/iPhone/,/Serial/p'"
-
-alias please='sudo'
-
-# ls aliases
-alias ll='ls -lG'
-alias l='ls -lAhG'
-alias ls='ls -G'
-alias lsd='ls -Gal | grep ^d' # Only list directories, including hidden ones
-alias lf='/bin/ls -rt|tail -n1' # list last changed file
-
-# a quick way to get out of current directory
-alias ..='cd ..'
-alias ...='cd ../../'
-alias ....='cd ../../../'
-alias .....='cd ../../../../'
-
-alias schwift='/Library/Developer/Toolchains/swift-latest.xctoolchain/usr/bin/swift'
 function serveHTTP() { ncat -klvp $1 }
-
-alias c='clear'
-
-# git aliases
-alias gg="git log --oneline --all --abbrev-commit --graph --decorate --color"
-alias gis="git status -s"
-alias gd="git diff"
-rgc() { git commit -m"`curl -s http://whatthecommit.com/index.txt`"; } #random git commit message
-function gcom() { git commit -m $1; }
-function gi() { wget http://www.gitignore.io/api/$1 -O ./.gitignore ;}
-alias gpanic="git checkout ."
-
-alias swift="xcrun swift"
 
 # hide all the desktop icons! :)
 function showDesktopIcons() { defaults write com.apple.finder CreateDesktop -bool $1; killall Finder; }
 
-alias uberspace='ssh benchr@bootes.uberspace.de'
-alias htw='ssh -X s76511@ilux150.informatik.htw-dresden.de'
-alias htwmount='sshfs s76511@ilux150.informatik.htw-dresden.de:. ~/tmp/iLux150'
-
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+# LOVOO
+function jenkins() {
+    ssh jenkins@osxbuild0$1.lovoo.local
+}
