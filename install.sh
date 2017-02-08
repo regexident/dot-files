@@ -1,43 +1,43 @@
 #!/bin/bash
 
 b=(
-	go
 	git
-	mercurial
-	openssl
-	loc
-	npm
-	keybase
+	go
 	hugo
+	keybase
+	loc
+	mercurial
+	npm
+	openssl
 	tmux
 	wget
 )
 
 c=(
-	sublime-text
-	brackets
-	visual-studio-code
-	slack
 	bartender
+	brackets
 	caffeine
-	virtualbox
-	tower
-	sqlpro-studio
-	the-unarchiver
-	paragon-ntfs
-	istat-menus
-	gpgtools
+	calibre
+	charles
 	dash
 	flux
-	spotify
-	charles
-	xquartz
-	whatsapp
-	softorino-youtube-converter
+	gpgtools
+	istat-menus
 	obs
-	calibre
-	rescuetime
+	paragon-ntfs
 	postman
+	rescuetime
+	slack
+	softorino-youtube-converter
+	spotify
+	sqlpro-studio
+	sublime-text
+	the-unarchiver
+	tower
+	virtualbox
+	visual-studio-code
+	whatsapp
+	xquartz
 )
 
 for f in "${b[@]}"
