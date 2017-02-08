@@ -1,5 +1,7 @@
 #!/bin/sh
 
+# This starting script is just a changed version of osxforhackers.sh script.
+
 # Alot of these configs have been taken from the various places
 # on the web, most from here
 # https://github.com/mathiasbynens/dotfiles/blob/master/.osx
@@ -27,17 +29,6 @@ cecho() {
 
 # Set continue to false by default
 CONTINUE=false
-
-echo ""
-cecho "###############################################" $red
-cecho "#        DO NOT RUN THIS SCRIPT BLINDLY       #" $red
-cecho "#         YOU'LL PROBABLY REGRET IT...        #" $red
-cecho "#                                             #" $red
-cecho "#              READ IT THOROUGHLY             #" $red
-cecho "#         AND EDIT TO SUIT YOUR NEEDS         #" $red
-cecho "###############################################" $red
-echo ""
-
 
 echo ""
 cecho "Have you read through the script you're about to run and " $red
@@ -285,7 +276,7 @@ echo "Wipe all (default) app icons from the Dock? (y/n)"
 echo "(This is only really useful when setting up a new Mac, or if you don't use the Dock to launch apps.)"
 read -r response
 if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
-  defaults write com.apple.dock persistent-apps -array
+defaults write com.apple.dock persistent-apps -array
 fi
 
 echo ""
@@ -399,14 +390,14 @@ echo ""
 echo "Do you use Sublime Text 3 as your editor of choice, and is it installed?"
 read -r response
 if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
-  # Installing from homebrew cask does the following for you!
-  # echo ""
-  # echo "Linking Sublime Text for command line usage as subl"
-  # ln -s "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" /usr/local/bin/subl
+# Installing from homebrew cask does the following for you!
+# echo ""
+# echo "Linking Sublime Text for command line usage as subl"
+# ln -s "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" /usr/local/bin/subl
 
-  echo ""
-  echo "Setting Git to use Sublime Text as default editor"
-  git config --global core.editor "subl -n -w"
+echo ""
+echo "Setting Git to use Sublime Text as default editor"
+git config --global core.editor "subl -n -w"
 fi
 
 
@@ -426,8 +417,22 @@ cecho "Killing some open applications in order to take effect." $red
 echo ""
 
 find ~/Library/Application\ Support/Dock -name "*.db" -maxdepth 1 -delete
-for app in "Activity Monitor" "Address Book" "Calendar" "Contacts" "cfprefsd" \
-  "Dock" "Finder" "Mail" "Messages" "Safari" "SystemUIServer" \
-  "Terminal" "Transmission"; do
+apps = (
+  "Activity Monitor"
+  "Address Book"
+  "Calendar"
+  "Contacts"
+  "cfprefsd"
+  "Dock"
+  "Finder"
+  "Mail"
+  "Messages"
+  "Safari"
+  "SystemUIServer"
+  "Terminal"
+  "Transmission"
+  )
+for app in "${apps[@]}"
+do
   killall "${app}" > /dev/null 2>&1
 done
