@@ -23,6 +23,7 @@ c=(
 	flux
 	gpgtools
 	istat-menus
+	java
 	obs
 	paragon-ntfs
 	postman
@@ -34,6 +35,7 @@ c=(
 	sublime-text
 	the-unarchiver
 	tower
+	typora
 	virtualbox
 	visual-studio-code
 	whatsapp
