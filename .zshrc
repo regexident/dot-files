@@ -4,6 +4,7 @@ export ZSH=$HOME/.oh-my-zsh
 # Theme
 ZSH_THEME='mymuse'
 
+# Temporary (when switching to powerlevel9k again)
 POWERLEVEL9K_MODE='awesome-patched'
 POWERLEVEL9K_CONTEXT_DEFAULT_BACKGROUND='002'
 POWERLEVEL9K_CONTEXT_DEFAULT_FOREGROUND='black'
@@ -25,7 +26,6 @@ REPORTTIME=10
 # plugins
 plugins=(git)
 
-
 if [ -z "$PS1" ]; then
         echo This shell is not interactive
 else
@@ -33,5 +33,3 @@ else
 fi
 
 source $HOME/.bashrc
-
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
