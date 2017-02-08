@@ -23,6 +23,7 @@ c=(
 	flux
 	gpgtools
 	istat-menus
+	iterm2
 	java
 	obs
 	paragon-ntfs
