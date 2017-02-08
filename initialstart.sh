@@ -278,7 +278,7 @@ echo "Wipe all (default) app icons from the Dock? (y/n)"
 echo "(This is only really useful when setting up a new Mac, or if you don't use the Dock to launch apps.)"
 read -r response
 if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
-defaults write com.apple.dock persistent-apps -array
+  defaults write com.apple.dock persistent-apps -array
 fi
 
 echo ""
