@@ -5,6 +5,7 @@ b=(
 	git
 	go
 	hugo
+	jq
 	keybase
 	loc
 	mas
