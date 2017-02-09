@@ -1,6 +1,7 @@
 #!/bin/bash
 
 b=(
+	exercism
 	git
 	go
 	hugo
@@ -8,12 +9,15 @@ b=(
 	loc
 	mas
 	mercurial
+	node
 	npm
 	openssl
 	rust
 	tmux
 	watchexec
+	watchman
 	wget
+	yarn
 )
 
 c=(
@@ -46,6 +50,10 @@ c=(
 	xquartz
 )
 
+n=(
+	react-native-cli
+)
+
 echo ""
 echo "Installing brew programs"
 for f in "${b[@]}"
@@ -58,6 +66,13 @@ echo "Installing brew cask programs"
 for f in "${c[@]}"
 do
 	brew cask install $f
+done
+
+echo ""
+echo "Installing node programs"
+for f in "${n[@]}"
+do
+	npm install -g  $f
 done
 
 echo "Do you want to install AppStore Apps as well?"
