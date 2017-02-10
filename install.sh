@@ -10,6 +10,7 @@ b=(
 	loc
 	mas
 	mercurial
+	mongodb
 	node
 	npm
 	openssl
@@ -37,6 +38,7 @@ c=(
 	paragon-ntfs
 	postman
 	rescuetime
+	robomongo
 	slack
 	softorino-youtube-converter
 	spotify
