@@ -1,6 +1,8 @@
 #!/bin/bash
 
 b=(
+	boot2docker
+	docker
 	exercism
 	git
 	go
