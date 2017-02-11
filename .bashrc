@@ -45,6 +45,8 @@ alias gpanic="git checkout ."
 # ssh hosts
 alias uberspace='ssh benchr@bootes.uberspace.de'
 alias htw='ssh -X s76511@ilux150.informatik.htw-dresden.de'
+alias rob='ssh s76511@rob1.rz.htw-dresden.de'
+alias rubu='ssh ben@rubu2.rz.htw-dresden.de'
 
 # useful functions
 function manpdf() { man -t "${1}" | open -f -a /Applications/Preview.app/; }
