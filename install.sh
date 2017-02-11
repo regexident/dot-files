@@ -56,7 +56,8 @@ c=(
 )
 
 n=(
-	react-native-cli
+	react-native-cli,
+	ios-deploy
 )
 
 echo ""
