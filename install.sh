@@ -2,7 +2,6 @@
 
 b=(
 	boot2docker
-	docker
 	exercism
 	git
 	go
@@ -31,6 +30,7 @@ c=(
 	calibre
 	charles
 	dash
+	docker
 	flux
 	gpgtools
 	istat-menus
