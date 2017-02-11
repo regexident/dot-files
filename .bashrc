@@ -36,9 +36,10 @@ alias .....='cd ../../../../'
 alias gg="git log --oneline --all --abbrev-commit --graph --decorate --color"
 alias gs="git status -s"
 alias gd="git diff"
-rgc() { git commit -m"`curl -s http://whatthecommit.com/index.txt`"; } #random git commit message
-function gcom() { git commit -m $1; }
-function gi() { wget http://www.gitignore.io/api/$1 -O ./.gitignore ;}
+rgc() { git commit -m"`curl -s http://whatthecommit.com/index.txt`" } #random git commit message
+function gcom() { git commit -m $1 }
+function ga() { git add $* }
+function gi() { wget http://www.gitignore.io/api/$1 -O ./.gitignore }
 alias gpanic="git checkout ."
 
 # ssh hosts
