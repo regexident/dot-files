@@ -2,6 +2,7 @@
 
 b=(
 	boot2docker
+	carthage
 	exercism
 	git
 	go
