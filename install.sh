@@ -34,6 +34,7 @@ c=(
 	docker
 	flux
 	gpgtools
+	icons8
 	istat-menus
 	iterm2
 	java
