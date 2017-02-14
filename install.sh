@@ -61,7 +61,9 @@ c=(
 n=(
 	react-native-cli,
 	ios-deploy,
-	webpack
+	serve,
+	webpack,
+	webpack-dev-server
 )
 
 echo ""
