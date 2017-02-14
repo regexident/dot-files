@@ -40,6 +40,7 @@ c=(
 	java
 	obs
 	paragon-ntfs
+	paw
 	postman
 	rescuetime
 	robomongo
