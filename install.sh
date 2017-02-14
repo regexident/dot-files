@@ -41,7 +41,6 @@ c=(
 	obs
 	paragon-ntfs
 	paw
-	postman
 	rescuetime
 	robomongo
 	slack
