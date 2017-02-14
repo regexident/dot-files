@@ -15,6 +15,7 @@ b=(
 	mongodb
 	node
 	npm
+	nvm
 	openssl
 	rust
 	tmux
