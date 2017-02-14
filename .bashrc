@@ -14,8 +14,13 @@ export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 alias zshconfig="subl ~/.zshrc"
 alias showUDIDs="system_profiler SPUSBDataType | sed -n -e '/iPad/,/Serial/p' -e '/iPhone/,/Serial/p'"
 
+# Swift
 alias schwift='/Library/Developer/Toolchains/swift-latest.xctoolchain/usr/bin/swift'
 alias swift="xcrun swift"
+
+# NVM
+export NVM_DIR="$HOME/.nvm"
+. "/usr/local/opt/nvm/nvm.sh"
 
 alias please='sudo'
 
