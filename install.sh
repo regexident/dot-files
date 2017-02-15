@@ -44,6 +44,7 @@ c=(
 	paw
 	rescuetime
 	robomongo
+	skype
 	slack
 	softorino-youtube-converter
 	spotify
