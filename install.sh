@@ -8,7 +8,6 @@ b=(
 	go
 	hugo
 	jq
-	keybase
 	loc
 	mas
 	mercurial
@@ -40,6 +39,7 @@ c=(
 	istat-menus
 	iterm2
 	java
+	keybase
 	obs
 	paragon-ntfs
 	paw
