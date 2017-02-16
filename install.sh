@@ -33,6 +33,7 @@ c=(
 	charles
 	dash
 	docker
+	firefox
 	flux
 	gpgtools
 	icons8
