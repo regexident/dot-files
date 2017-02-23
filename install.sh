@@ -17,6 +17,7 @@ b=(
 	nvm
 	openssl
 	rust
+	swiftlint
 	tmux
 	watchexec
 	watchman
