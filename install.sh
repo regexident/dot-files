@@ -35,6 +35,7 @@ c=(
 	docker
 	firefox
 	flux
+	gitup
 	gpgtools
 	icons8
 	istat-menus
