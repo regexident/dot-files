@@ -15,10 +15,12 @@ b=(
 	mas
 	mercurial
 	mongodb
+	mysql
 	node
 	npm
 	nvm
 	openssl
+	postgres
 	rust
 	swiftlint
 	tldr
