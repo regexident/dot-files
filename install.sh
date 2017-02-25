@@ -21,6 +21,7 @@ b=(
 	openssl
 	rust
 	swiftlint
+	tldr
 	tmux
 	watchexec
 	watchman
