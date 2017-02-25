@@ -3,6 +3,7 @@
 b=(
 	boot2docker
 	carthage
+	csshx
 	exercism
 	git
 	go
