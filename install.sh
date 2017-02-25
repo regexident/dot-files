@@ -41,6 +41,7 @@ c=(
 	iterm2
 	java
 	keybase
+	messenger
 	obs
 	paragon-ntfs
 	paw
