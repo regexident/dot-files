@@ -1,12 +1,14 @@
 #!/bin/bash
 
 b=(
+	ack
 	boot2docker
 	carthage
 	csshx
 	exercism
 	git
 	go
+	htop-osx
 	hugo
 	jq
 	loc
