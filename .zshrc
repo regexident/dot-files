@@ -24,7 +24,7 @@ COMPLETION_WAITING_DOTS="true"
 REPORTTIME=10
 
 # plugins
-plugins=(git zsh-syntax-highlighting)
+plugins=(git zsh-syntax-highlighting zsh-autosuggestions)
 
 if [ -z "$PS1" ]; then
         echo This shell is not interactive
