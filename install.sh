@@ -55,6 +55,7 @@ c=(
 	paw
 	rescuetime
 	robomongo
+	screenflow
 	skype
 	slack
 	softorino-youtube-converter
