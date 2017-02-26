@@ -21,6 +21,7 @@ b=(
 	nvm
 	openssl
 	postgres
+	ruby
 	rust
 	swiftlint
 	tldr
