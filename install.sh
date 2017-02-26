@@ -42,6 +42,7 @@ c=(
 	docker
 	firefox
 	flux
+	forklift
 	gitup
 	gpgtools
 	icons8
