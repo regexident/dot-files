@@ -9,6 +9,7 @@ b=(
 	git
 	go
 	htop-osx
+	httpie
 	hugo
 	jq
 	loc
