@@ -104,6 +104,15 @@ function tower() {
     fi
 }
 
+function str() {
+    if [ $# -eq 0 ]
+    then
+        open -a SourceTree .
+    else
+        open -a SourceTree $1
+    fi
+}
+
 function serveHTTP() { ncat -klvp $1 }
 
 # hide all the desktop icons! :)
