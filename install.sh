@@ -9,6 +9,7 @@ b=(
 	git
 	git-flow
 	go
+	gpg
 	htop-osx
 	httpie
 	hugo
