@@ -51,6 +51,7 @@ c=(
 	java
 	keybase
 	messenger
+	ngrok
 	obs
 	paragon-ntfs
 	paw
