@@ -7,6 +7,7 @@ b=(
 	csshx
 	exercism
 	git
+	git-flow
 	go
 	htop-osx
 	httpie
