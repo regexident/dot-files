@@ -63,11 +63,11 @@ c=(
 	skype
 	slack
 	softorino-youtube-converter
+	sourcetree
 	spotify
 	sqlpro-studio
 	sublime-text
 	the-unarchiver
-	tower
 	typora
 	virtualbox
 	visual-studio-code
