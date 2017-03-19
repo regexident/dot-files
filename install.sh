@@ -44,7 +44,6 @@ c=(
 	dash
 	docker
 	firefox
-	flux
 	gitup
 	gpgtools
 	icons8
