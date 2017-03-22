@@ -22,6 +22,7 @@ b=(
 	mysql
 	openssl
 	postgres
+	r
 	ruby
 	rust
 	swiftlint
@@ -56,6 +57,7 @@ c=(
 	paw
 	rescuetime
 	robomongo
+	rstudio
 	screenflow
 	skype
 	slack
