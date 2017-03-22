@@ -19,10 +19,6 @@ alias showUDIDs="system_profiler SPUSBDataType | sed -n -e '/iPad/,/Serial/p' -e
 alias schwift='/Library/Developer/Toolchains/swift-latest.xctoolchain/usr/bin/swift'
 alias swift="xcrun swift"
 
-# NVM
-export NVM_DIR="$HOME/.nvm"
-. "/usr/local/opt/nvm/nvm.sh"
-
 alias please='sudo'
 
 # ls aliases

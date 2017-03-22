@@ -8,6 +8,7 @@ b=(
 	exercism
 	git
 	git-flow
+	glide
 	go
 	gpg
 	htop-osx
@@ -19,9 +20,6 @@ b=(
 	mercurial
 	mongodb
 	mysql
-	node
-	npm
-	nvm
 	openssl
 	postgres
 	ruby
