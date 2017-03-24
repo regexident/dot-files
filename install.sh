@@ -25,6 +25,7 @@ b=(
 	r
 	ruby
 	rust
+	scala
 	swiftlint
 	tldr
 	tmux
@@ -55,6 +56,7 @@ c=(
 	obs
 	paragon-ntfs
 	paw
+	qlmarkdown
 	rescuetime
 	robomongo
 	rstudio
