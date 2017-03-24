@@ -3,13 +3,14 @@ export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Hom
 export ANDROID_HOME=/usr/local/opt/android-sdk
 export PATH=/usr/local/sbin:$PATH
 
-# Go stuff
+# Go & Rust stuff
 export GOPATH=$HOME/Development/go
 export GOROOT=/usr/local/opt/go/libexec
 export PATH=$PATH:/usr/local/Cellar
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:$GOROOT/bin
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+export PATH=$PATH:$HOME/.cargo/bin
 
 # Aliases
 alias zshconfig="subl ~/.zshrc"
