@@ -70,6 +70,7 @@ c=(
 	sublime-text
 	the-unarchiver
 	typora
+	vagrant
 	virtualbox
 	visual-studio-code
 	whatsapp
