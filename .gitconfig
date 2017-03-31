@@ -1,0 +1,19 @@
+[core]
+	editor = subl -n -w
+	excludesfile = $HOME/.gitignore_global
+[user]
+	name = Benjamin Herzog
+	email = mail@benchr.de
+	signingkey = 01C61685
+[commit]
+	gpgsign = true
+[gpg]
+	program = /usr/local/bin/gpg
+[url "git@github.com:"]
+	insteadOf = https://github.com/
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
